@@ -1,0 +1,135 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.section {
+  display: none;
+  background: white;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+  background: #121212;
+  color: #eee;
+}
+
+body.dark-mode .section {
+  background: #1e1e1e;
+}
+
+.section.active {
+  display: block;
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.language-selector {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.language-selector button {
+  margin: 0 5px 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #ddd;
+  transition: background 0.3s ease;
+}
+
+.language-selector button:hover {
+  background: #bbb;
+}
+
+#theme-toggle,
+#random-btn {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.options button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.age-inline button {
+  display: inline-block;
+  width: 30%;
+  margin: 8px 5px;
+  background-color: #10b981;
+  color: white;
+}
+
+.options button:hover {
+  filter: brightness(90%);
+}
+
+.options button.selected {
+  filter: brightness(75%) saturate(120%);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  transform: scale(0.98);
+}
+
+button#genreSelectBtn,
+button#authorSelectBtn,
+button#ageSelectBtn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #10b981;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+#restartBtn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+#recommendations p {
+  font-size: 16px;
+  margin: 8px 0;
+  color: #222;
+}
