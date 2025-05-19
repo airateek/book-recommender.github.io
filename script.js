@@ -378,6 +378,7 @@ function populateAuthors() {
   const container = document.getElementById("authorOptions");
   container.innerHTML = "";
   const authorList = translations[currentLanguage].authors[selectedGenre];
+  authorList.unshift("None");
   authorList.forEach((author) => {
     const btn = document.createElement("button");
     btn.textContent = author;
@@ -439,9 +440,25 @@ function selectAge(age, btn) {
 function confirmAge() {
   hideAllSections();
   document.getElementById("resultSection").classList.add("active");
-  const books = translations[currentLanguage].books[selectedAuthor] || [
-    "No recommendations found."
-  ];
+
+  let books = [];
+
+  if (selectedAuthor === "None") {
+    // Собрать все книги из жанра
+    const authorsInGenre = translations[currentLanguage].authors[selectedGenre];
+    authorsInGenre.forEach((author) => {
+      const authorBooks = translations[currentLanguage].books[author] || [];
+      books = books.concat(authorBooks);
+    });
+  } else {
+    books = translations[currentLanguage].books[selectedAuthor] || [];
+  }
+
+  // Случайные 3 книги из доступных
+  if (books.length > 3) {
+    books = books.sort(() => 0.5 - Math.random()).slice(0, 3);
+  }
+
   document.getElementById("recommendations").innerHTML = books
     .map((book) => `<p>${book}</p>`)
     .join("");
